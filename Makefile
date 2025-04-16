@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRC = ./src/ft_strjoin.c ./src/ft_strlen.c ./src/ft_substr.c ./src/ft_strtrim.c ./src/is_incset.c ./src/ft_split.c ./src/ft_strdup.c ./src/ft_itoa.c ./src/ft_strmapi.c
+SRC = ./src/ft_strjoin.c ./src/ft_strlen.c ./src/ft_substr.c ./src/ft_strtrim.c ./src/is_incset.c ./src/ft_split.c ./src/ft_strdup.c ./src/ft_itoa.c ./src/ft_strmapi.c ./src/ft_putchar_fd.c ./src/ft_putendl_fd.c ./src/ft_putnbr_fd.c ./src/ft_putstr_fd.c
 
 TESTFILE = ./src/test.c
 

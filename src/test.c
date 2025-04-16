@@ -144,4 +144,35 @@ int main()
 	/* ft_strmapi */
 	printf("========[ft_itoa]=========\n\n");
 	printf("TESTS NEED TO BE CREATED\n\n");
+
+	/* ft_putchar_fd */
+	printf("========[ft_putchar_fd & ft_putstr_fd]=========\n\n");
+
+	printf("Expected: a\n");
+	printf("Expected: \n");
+	ft_putstr_fd("  Result: ", 1);
+	ft_putchar_fd('a',1);
+	ft_putchar_fd('\n',1);
+	ft_putstr_fd("  Result: ", 1);
+	ft_putchar_fd(0,1);
+	ft_putchar_fd('\n',1);
+
+	/* ft_putendl_fd */
+	printf("========[ft_putendl_fd]=========\n\n");
+
+	printf("Expected: This string\n");
+	ft_putendl_fd("  Result: This string", 1);
+
+	/* ft_putnbr_fd */
+	printf("========[ft_putnbr_fd]=========\n\n");
+
+	printf("Expected:\n-2147483648\n0\n2564486\n-2564486\nResults:\n");
+	ft_putnbr_fd(-2147483648,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(0,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(2564486,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(-2564486,1);
+	ft_putchar_fd('\n',1);
 }
