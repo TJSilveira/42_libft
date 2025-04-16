@@ -64,4 +64,22 @@ int main()
 
 	a = "";
 	printf("Expected: 0\nResult: %li\n",ft_strlen(a));
+
+	/* ft_strtrim */
+	printf("========[ft_strtrim]=========\n\n");
+
+	a = "abc 123456789 abc";
+	b = "abc ";
+	printf("Expected: 123456789\nResult: %s\n", ft_strtrim(a,b));
+
+	b = "";
+	printf("Expected: abc 123456789 abc\nResult: %s\n", ft_strtrim(a,b));
+
+	b = "9";
+	printf("Expected: abc 123456789 abc\nResult: %s\n", ft_strtrim(a,b));
+
+	a = "";
+	b = "abc ";
+	printf("Expected: \nResult: %s\n", ft_strtrim(a,b));
+
 }
