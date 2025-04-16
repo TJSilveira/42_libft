@@ -140,4 +140,8 @@ int main()
 	printf("Expected: -21448\n  Result: %s\n",ft_itoa(-21448));
 	printf("Expected: 2147483647\n  Result: %s\n",ft_itoa(2147483647));
 	printf("Expected: 0\n  Result: %s\n",ft_itoa(0));
+
+	/* ft_strmapi */
+	printf("========[ft_itoa]=========\n\n");
+	printf("TESTS NEED TO BE CREATED\n\n");
 }
