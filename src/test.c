@@ -132,4 +132,12 @@ int main()
 	printf("Expected: aaABCDaEFGHaa1234\n  Result: %s\n",a);
 	a = ft_strdup("");
 	printf("Expected: \n  Result: %s\n",a);
+
+	/* ft_itoa */
+	printf("========[ft_itoa]=========\n\n");
+
+	printf("Expected: -2147483648\n  Result: %s\n",ft_itoa(-2147483648));
+	printf("Expected: -21448\n  Result: %s\n",ft_itoa(-21448));
+	printf("Expected: 2147483647\n  Result: %s\n",ft_itoa(2147483647));
+	printf("Expected: 0\n  Result: %s\n",ft_itoa(0));
 }
