@@ -275,4 +275,9 @@ int main()
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '8'), ft_strrchr(test1, '8'));
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, 0), ft_strrchr(test1, 0));
 
+	/* ft_strnstr.c */
+	printf("========[ft_strnstr]=========\n\n");
+
+	printf("Expected: 123123;\n  Result: %s;\n", ft_strnstr(test1, "1231", 20));
+	printf("Expected: (null);\n  Result: %s;\n", ft_strnstr(test1, "1231s", 20));
 }
