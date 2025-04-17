@@ -358,5 +358,12 @@ int main()
 	printf("Expected: %i;\n  Result: %i;\n", tolower('8'), ft_tolower('8'));
 	printf("Expected: %i;\n  Result: %i;\n", tolower(127), ft_tolower(127));
 	printf("Expected: %i;\n  Result: %i;\n", tolower(128), ft_tolower(128));
-	
+
+	/* ft_calloc.c */
+	printf("========[ft_calloc]=========\n\n");
+
+	a = ft_calloc(20,sizeof(int));
+	printf("Expected: 0;\n  Result: %i;\n", a[19]);
+	a = (char *)ft_calloc(20,0);
+	printf("Expected: ;\n  Result: %s;\n", a);
 }
