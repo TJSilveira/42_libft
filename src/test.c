@@ -237,4 +237,17 @@ int main()
 
 	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(d, '4', 10), (char *)ft_memchr(d, '4', 10));
 	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(d, 'A', 10), (char *)ft_memchr(d, 'A', 10));
+
+	/* ft_memcmp.c */
+	printf("========[ft_memcmp]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", memcmp(a, "a0123456789789", 14), ft_memcmp(a, "a0123456789789", 14));
+	printf("Expected: %i;\n  Result: %i;\n", memcmp(a, "a0123456789789", 0), ft_memcmp(a, "a0123456789789", 0));
+	printf("Expected: %i;\n  Result: %i;\n", memcmp(a, " 0123456789789", 14), ft_memcmp(a, " 0123456789789", 14));
+
+	/* ft_strlcpy.c */
+	printf("========[ft_strlcpy]=========\n\n");
+
+	printf("Expected: '8'Correct!;\n  Result: '%li'%s;\n", ft_strlcpy(a, "Correct!", 14), a);
+	printf("Expected: '0';\n  Result: '%li'%s;\n", ft_strlcpy(a, "", 14), a);
 }
