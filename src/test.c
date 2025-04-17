@@ -175,4 +175,27 @@ int main()
 	ft_putchar_fd('\n',1);
 	ft_putnbr_fd(-2564486,1);
 	ft_putchar_fd('\n',1);
+
+	/* ft_memset.c */
+	printf("========[ft_memset]=========\n\n");
+
+	char	c[10];
+
+	ft_memset(c, 0, 10);
+	ft_memset(c, 65, 9);
+	printf("Expected: AAAAAAAAA\n  Result: %s\n",c);
+
+	/* ft_bzero.c */
+	printf("========[ft_bzero]=========\n\n");
+
+	int		i;
+
+	i = 0;
+	ft_bzero(c, 10);
+	printf("Expected: 0000000000\n  Result: ");
+	while (i < 10)
+	{
+		printf("%i", (int)c[i++]);
+	}
+	printf("\n");
 }
