@@ -299,4 +299,43 @@ int main()
 	printf("Expected: %i;\n  Result: %i;\n", atoi(""), ft_atoi(""));
 	printf("Expected: %i;\n  Result: %i;\n", atoi(ft_itoa(INT_MIN)), ft_atoi(ft_itoa(INT_MIN)));
 	printf("Expected: %i;\n  Result: %i;\n", atoi(ft_itoa(INT_MAX)), ft_atoi(ft_itoa(INT_MAX)));
+
+	/* ft_isalnum.c */
+	printf("========[ft_isalnum]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", isalnum('a'), ft_isalnum('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isalnum('8'), ft_isalnum('8'));
+	printf("Expected: %i;\n  Result: %i;\n", isalnum(' '), ft_isalnum(' '));
+
+	/* ft_isalpha.c */
+	printf("========[ft_isalpha]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", isalpha('a'), ft_isalpha('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isalpha('8'), ft_isalpha('8'));
+	printf("Expected: %i;\n  Result: %i;\n", isalpha(' '), ft_isalpha(' '));
+
+	/* ft_isascii.c */
+	printf("========[ft_isascii]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", isascii('a'), ft_isascii('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isascii('8'), ft_isascii('8'));
+	printf("Expected: %i;\n  Result: %i;\n", isascii(127), ft_isascii(127));
+	printf("Expected: %i;\n  Result: %i;\n", isascii(128), ft_isascii(128));
+
+	/* ft_isdigit.c */
+	printf("========[ft_isdigit]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", isdigit('a'), ft_isdigit('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isdigit('8'), ft_isdigit('8'));
+	printf("Expected: %i;\n  Result: %i;\n", isdigit(127), ft_isdigit(127));
+	printf("Expected: %i;\n  Result: %i;\n", isdigit(128), ft_isdigit(128));
+
+	/* ft_isprint.c */
+	printf("========[ft_isprint]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", isprint('a'), ft_isprint('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isprint('\n'), ft_isprint('\n'));
+	printf("Expected: %i;\n  Result: %i;\n", isprint('8'), ft_isprint('8'));
+	printf("Expected: %i;\n  Result: %i;\n", isprint(127), ft_isprint(127));
+	printf("Expected: %i;\n  Result: %i;\n", isprint(128), ft_isprint(128));
 }
