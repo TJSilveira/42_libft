@@ -231,4 +231,10 @@ int main()
 
 	ft_memmove(a, &e[3], 10);
 	printf("Expected: 0123456789789;\n  Result: %s;\n", a);
+
+	/* ft_memchr.c */
+	printf("========[ft_memchr]=========\n\n");
+
+	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(d, '4', 10), (char *)ft_memchr(d, '4', 10));
+	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(d, 'A', 10), (char *)ft_memchr(d, 'A', 10));
 }
