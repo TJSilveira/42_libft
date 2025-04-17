@@ -366,4 +366,73 @@ int main()
 	printf("Expected: 0;\n  Result: %i;\n", a[19]);
 	a = (char *)ft_calloc(20,0);
 	printf("Expected: ;\n  Result: %s;\n", a);
+	
+	/* BONUS SECTION */
+	printf("========[ft_lstnew_bonus.c]=========\n\n");
+
+	int		*counter_ptr = malloc(sizeof(int));
+	*counter_ptr = 0;
+	t_list	*start = ft_lstnew(counter_ptr);
+	t_list	*curr_lst;
+	t_list	*new_node;
+	int		temp;
+
+	curr_lst = start;
+	new_node = start;
+	while ((*counter_ptr )< 6)
+	{
+		temp = *counter_ptr;
+		counter_ptr = malloc(sizeof(int));
+		*counter_ptr = temp + 1;
+		new_node->next = ft_lstnew(counter_ptr);
+		new_node = new_node->next;
+		new_node->next = NULL;
+	}
+	
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}
+
+	printf("========[ft_lstadd_back.c]=========\n\n");
+
+	temp = *counter_ptr;
+	counter_ptr = malloc(sizeof(int));
+	*counter_ptr = temp + 1;
+	new_node = ft_lstnew(counter_ptr);
+	new_node->next = NULL;
+	ft_lstadd_back(&start,new_node);
+
+	curr_lst = start;
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}
+
+	printf("========[ft_lstadd_front.c]=========\n\n");
+
+	temp = *counter_ptr;
+	counter_ptr = malloc(sizeof(int));
+	*counter_ptr = temp + 1;
+	new_node = ft_lstnew(counter_ptr);
+	new_node->next = NULL;
+	ft_lstadd_front(&start,new_node);
+
+	curr_lst = start;
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}
+
+	printf("========[ft_lstlast]=========\n\n");
+
+	t_list	*last = ft_lstlast(start);
+	printf("Content of node: %i\n", *(int*)(last->content));
+
+	printf("========[ft_lstsize]=========\n\n");
+
+	printf("Size of list: %i\n", ft_lstsize(start));
 }

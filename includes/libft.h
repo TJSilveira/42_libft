@@ -9,6 +9,12 @@
 #include <ctype.h>
 #define ABS(n) (((n) < 0) * (-(n)) + ((n) >= 0) * (n))
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -44,10 +50,10 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t nmemb, size_t size);
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 #endif
