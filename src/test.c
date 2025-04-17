@@ -198,4 +198,23 @@ int main()
 		printf("%i", (int)c[i++]);
 	}
 	printf("\n");
+
+	/* ft_memcpy.c */
+	printf("========[ft_memcpy]=========\n\n");
+
+	ft_memcpy(a, b, 5);
+	printf("Expected: abc ;\n  Result: %s;\n", a);
+	ft_memcpy(a, c, 10);
+	printf("Expected: ;\n  Result: %s;\n", a);
+
+	/* ft_memccpy.c */
+	printf("========[ft_memccpy]=========\n\n");
+
+	a = malloc(sizeof(char) * 10);
+	ft_bzero(a, 10);
+
+	ft_memccpy(a, b, 99, 5);
+	printf("Expected: abc ;\n  Result: %s;\n", a);
+	ft_memccpy(a, c, 3,10);
+	printf("Expected: ;\n  Result: %s;\n", a);
 }
