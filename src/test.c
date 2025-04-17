@@ -250,4 +250,14 @@ int main()
 
 	printf("Expected: '8'Correct!;\n  Result: '%li'%s;\n", ft_strlcpy(a, "Correct!", 14), a);
 	printf("Expected: '0';\n  Result: '%li'%s;\n", ft_strlcpy(a, "", 14), a);
+
+	/* ft_strlcat.c */
+	printf("========[ft_strlcat]=========\n\n");
+
+	char test1[20] = "Tua";
+	char test1a[20] = "123";
+	char test2[20] = "Tua";
+	char test2a[20] = "123";
+	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 2), test1, ft_strlcat(test2, test2a, 2), test2);
+	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 14), test1, ft_strlcat(test2, test2a, 14), test2);
 }
