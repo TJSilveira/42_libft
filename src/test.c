@@ -338,4 +338,25 @@ int main()
 	printf("Expected: %i;\n  Result: %i;\n", isprint('8'), ft_isprint('8'));
 	printf("Expected: %i;\n  Result: %i;\n", isprint(127), ft_isprint(127));
 	printf("Expected: %i;\n  Result: %i;\n", isprint(128), ft_isprint(128));
+
+	/* ft_toupper.c */
+	printf("========[ft_toupper]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", toupper('a'), ft_toupper('a'));
+	printf("Expected: %i;\n  Result: %i;\n", toupper('A'), ft_toupper('A'));
+	printf("Expected: %i;\n  Result: %i;\n", toupper('\n'), ft_toupper('\n'));
+	printf("Expected: %i;\n  Result: %i;\n", toupper('8'), ft_toupper('8'));
+	printf("Expected: %i;\n  Result: %i;\n", toupper(127), ft_toupper(127));
+	printf("Expected: %i;\n  Result: %i;\n", toupper(128), ft_toupper(128));
+
+	/* ft_tolower.c */
+	printf("========[ft_tolower]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", tolower('a'), ft_tolower('a'));
+	printf("Expected: %i;\n  Result: %i;\n", tolower('A'), ft_tolower('A'));
+	printf("Expected: %i;\n  Result: %i;\n", tolower('\n'), ft_tolower('\n'));
+	printf("Expected: %i;\n  Result: %i;\n", tolower('8'), ft_tolower('8'));
+	printf("Expected: %i;\n  Result: %i;\n", tolower(127), ft_tolower(127));
+	printf("Expected: %i;\n  Result: %i;\n", tolower(128), ft_tolower(128));
+	
 }
