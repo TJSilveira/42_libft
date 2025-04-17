@@ -280,4 +280,23 @@ int main()
 
 	printf("Expected: 123123;\n  Result: %s;\n", ft_strnstr(test1, "1231", 20));
 	printf("Expected: (null);\n  Result: %s;\n", ft_strnstr(test1, "1231s", 20));
+
+	/* ft_strncmp.c */
+	printf("========[ft_strncmp]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 20), ft_strncmp(test1, "1231", 20));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 20), ft_strncmp(test1, "Tua", 20));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 0), ft_strncmp(test1, "Tua", 0));
+
+	/* ft_atoi.c */
+	printf("========[ft_atoi]=========\n\n");
+
+	printf("Expected: %i;\n  Result: %i;\n", atoi("++1472"), ft_atoi("++1472"));
+	printf("Expected: %i;\n  Result: %i;\n", atoi("+1472"), ft_atoi("+1472"));
+	printf("Expected: %i;\n  Result: %i;\n", atoi("+14a72"), ft_atoi("+14a72"));
+	printf("Expected: %i;\n  Result: %i;\n", atoi("--1472"), ft_atoi("--1472"));
+	printf("Expected: %i;\n  Result: %i;\n", atoi("-1472"), ft_atoi("-1472"));
+	printf("Expected: %i;\n  Result: %i;\n", atoi(""), ft_atoi(""));
+	printf("Expected: %i;\n  Result: %i;\n", atoi(ft_itoa(INT_MIN)), ft_atoi(ft_itoa(INT_MIN)));
+	printf("Expected: %i;\n  Result: %i;\n", atoi(ft_itoa(INT_MAX)), ft_atoi(ft_itoa(INT_MAX)));
 }
