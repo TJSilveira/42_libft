@@ -217,4 +217,18 @@ int main()
 	printf("Expected: abc ;\n  Result: %s;\n", a);
 	ft_memccpy(a, c, 3,10);
 	printf("Expected: ;\n  Result: %s;\n", a);
+
+	/* ft_memmove.c */
+	printf("========[ft_memmove]=========\n\n");
+
+	char	d[15] = "0123456789";
+	a = &d[3];
+
+	ft_memmove(a, d, 10);
+	printf("Expected: 0120123456789;\n  Result: %s;\n", d);
+	char	e[15] = "   0123456789";
+	a = e;
+
+	ft_memmove(a, &e[3], 10);
+	printf("Expected: 0123456789789;\n  Result: %s;\n", a);
 }
