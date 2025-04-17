@@ -254,10 +254,25 @@ int main()
 	/* ft_strlcat.c */
 	printf("========[ft_strlcat]=========\n\n");
 
-	char test1[20] = "Tua";
+	char test1[20] = "Tua123";
 	char test1a[20] = "123";
-	char test2[20] = "Tua";
+	char test2[20] = "Tua123";
 	char test2a[20] = "123";
 	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 2), test1, ft_strlcat(test2, test2a, 2), test2);
 	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 14), test1, ft_strlcat(test2, test2a, 14), test2);
+
+	/* ft_strchr.c */
+	printf("========[ft_strchr]=========\n\n");
+
+	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, '1'), ft_strchr(test1, '1'));
+	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, '8'), ft_strchr(test1, '8'));
+	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, 0), ft_strchr(test1, 0));
+
+	/* ft_strrchr.c */
+	printf("========[ft_strrchr]=========\n\n");
+
+	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '1'), ft_strrchr(test1, '1'));
+	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '8'), ft_strrchr(test1, '8'));
+	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, 0), ft_strrchr(test1, 0));
+
 }
