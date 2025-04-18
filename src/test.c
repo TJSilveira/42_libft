@@ -514,4 +514,9 @@ int main()
 		printf("Content of node: %i\n", *(int*)(curr_lst->content));
 		curr_lst = curr_lst->next;
 	}
+
+	/* New Functions extra Bonus*/
+	printf("========[ft_putstr_var_fd]=========\n\n");	
+
+	ft_putstr_var_fd("0123456789\n",5,11,1);
 }

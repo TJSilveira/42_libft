@@ -49,7 +49,8 @@ BONUS_FILES = ft_lstnew_bonus.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
 		ft_lstmap_bonus.c \
-		ft_is_incset_bonus.c
+		ft_is_incset_bonus.c \
+		ft_putstr_var_fd_bonus.c
 
 TESTFILE = $(addprefix $(SRC_DIR),test.c)
 
