@@ -4,7 +4,7 @@ SRC = ./src/ft_strjoin.c \
 		./src/ft_strlen.c \
 		./src/ft_substr.c \
 		./src/ft_strtrim.c \
-		./src/is_incset.c \
+		./src/ft_is_incset.c \
 		./src/ft_split.c \
 		./src/ft_strdup.c \
 		./src/ft_itoa.c \
@@ -40,7 +40,11 @@ SRC_BONUS = ./src/ft_lstnew_bonus.c \
 		./src/ft_lstadd_front_bonus.c \
 		./src/ft_lstsize_bonus.c \
 		./src/ft_lstlast_bonus.c \
-		./src/ft_lstadd_back_bonus.c
+		./src/ft_lstadd_back_bonus.c \
+		./src/ft_lstdelone_bonus.c \
+		./src/ft_lstclear_bonus.c \
+		./src/ft_lstiter_bonus.c \
+		./src/ft_lstmap_bonus.c
 
 TESTFILE = ./src/test.c
 

@@ -4,6 +4,30 @@
 
 #include <stdio.h>
 
+void	del(void *content)
+{
+	if (content)
+	{
+		free(content);
+	}	
+}
+
+void	mult_2(void *content)
+{
+	*(int *)content *= 2;
+}
+
+void	*mult_2_ptr(void *content)
+{
+	*(int *)content *= 2;
+	return (content); 
+}
+
+char	encoder(unsigned int i, char c)
+{
+	return ((c + i - ' ') % 95 + ' ');
+}
+
 int main()
 {
 	/* ft_substr */
@@ -142,8 +166,10 @@ int main()
 	printf("Expected: 0\n  Result: %s\n",ft_itoa(0));
 
 	/* ft_strmapi */
-	printf("========[ft_itoa]=========\n\n");
-	printf("TESTS NEED TO BE CREATED\n\n");
+	printf("========[ft_strmapi]=========\n\n");
+
+	printf("Expected: TFUWW%%TLMM*_[-PT0TdXUi[[\n  Result: %s\n",ft_strmapi("TESTS NEED TO BE CREATED", encoder));
+	printf("Expected: ABCDEFGHIJKLMNOPQRSTUVWX\n  Result: %s\n",ft_strmapi("AAAAAAAAAAAAAAAAAAAAAAAA", encoder));
 
 	/* ft_putchar_fd */
 	printf("========[ft_putchar_fd & ft_putstr_fd]=========\n\n");
@@ -368,6 +394,7 @@ int main()
 	printf("Expected: ;\n  Result: %s;\n", a);
 	
 	/* BONUS SECTION */
+	/* ft_lstnew_bonus */
 	printf("========[ft_lstnew_bonus.c]=========\n\n");
 
 	int		*counter_ptr = malloc(sizeof(int));
@@ -394,7 +421,8 @@ int main()
 		printf("Content of node: %i\n", *(int*)(curr_lst->content));
 		curr_lst = curr_lst->next;
 	}
-
+	
+	/* ft_lstadd_back */
 	printf("========[ft_lstadd_back.c]=========\n\n");
 
 	temp = *counter_ptr;
@@ -411,6 +439,7 @@ int main()
 		curr_lst = curr_lst->next;
 	}
 
+	/* ft_lstadd_front */
 	printf("========[ft_lstadd_front.c]=========\n\n");
 
 	temp = *counter_ptr;
@@ -427,12 +456,62 @@ int main()
 		curr_lst = curr_lst->next;
 	}
 
+	/* ft_lstlast */
 	printf("========[ft_lstlast]=========\n\n");
 
 	t_list	*last = ft_lstlast(start);
 	printf("Content of node: %i\n", *(int*)(last->content));
 
+	/* ft_lstsize */
 	printf("========[ft_lstsize]=========\n\n");
 
 	printf("Size of list: %i\n", ft_lstsize(start));
+
+	/* ft_lstdelone */
+	printf("========[ft_lstdelone]=========\n\n");
+
+	/*ft_lstdelone(last, del);
+	curr_lst = start;
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}*/
+	printf("Tested correctly \n");
+
+	/* ft_lstclear */
+	printf("========[ft_lstclear]=========\n\n");	
+	
+	/*curr_lst = start->next;
+	ft_lstclear(&curr_lst, del);
+	curr_lst = start;
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}*/
+	printf("Tested correctly \n");
+
+	/* ft_lstiter */
+	printf("========[ft_lstiter]=========\n\n");	
+
+	ft_lstiter(start, mult_2);
+	curr_lst = start;
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}
+
+	/* ft_lstmap */
+	printf("========[ft_lstmap]=========\n\n");	
+
+	t_list	*new_lst;
+	new_lst = ft_lstmap(start, mult_2_ptr, del);
+	curr_lst = new_lst;
+	while (curr_lst)
+	{
+		printf("Content of node: %i\n", *(int*)(curr_lst->content));
+		curr_lst = curr_lst->next;
+	}
 }
