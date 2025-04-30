@@ -24,6 +24,6 @@ char *ft_strjoin(char const *s1, char const *s2)
 		dest[counter + len_s1] = s2[counter];
 		counter++;
 	}
-	dest[counter + len_s1 + 1] = 0;
+	dest[counter + len_s1] = 0;
 	return (dest);
 }
