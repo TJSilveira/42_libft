@@ -10,7 +10,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	while (s1[start] && is_incset(s1[start], set))
 		start++;
 	end = ft_strlen(s1) - 1;
-	while (end > 0 && is_incset(s1[end], set))
+	while (end >= start && is_incset(s1[end], set))
 		end--;
 	dest = ft_substr(s1,  start, end - start + 1);
 	return (dest);

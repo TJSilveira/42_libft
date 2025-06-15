@@ -47,6 +47,9 @@ int main()
 	res = ft_substr(a,4,0);
 	printf("Expected: \n  Result: %s\n",res);
 
+	res = ft_substr(a,100,5);
+	printf("Expected: (null)\n  Result: %s\n",res);
+
 	/* ft_strjoin */
 
 	printf("========[ft_strjoin]=========\n\n");
@@ -104,7 +107,11 @@ int main()
 
 	a = "";
 	b = "abc ";
-	printf("Expected: \n  Result: %s\n", ft_strtrim(a,b));
+	printf("Expected: (null)\n  Result: %s\n", ft_strtrim(a,b));
+
+	a = "abc";
+	b = "abc";
+	printf("Expected: (null)\n  Result: %s\n", ft_strtrim(a,b));
 
 	/* ft_split */
 	printf("========[ft_split]=========\n\n");
@@ -238,11 +245,19 @@ int main()
 
 	a = malloc(sizeof(char) * 10);
 	ft_bzero(a, 10);
+	char *a_original_func = malloc(sizeof(char) * 10);
+	ft_bzero(a_original_func, 10);
 
-	ft_memccpy(a, b, 99, 5);
-	printf("Expected: ab;\n  Result: %s;\n", a);
+	printf("Expected: %s;\n  Result: %s;\nExpected: %s;\n  Result: %s;\n", (unsigned char *)memccpy(a_original_func, b, 99, 5), (unsigned char *)ft_memccpy(a, b, 99, 5), a_original_func, a);
 	ft_memccpy(a, c, 3, 10);
-	printf("Expected: ;\n  Result: %s;\n", a);
+	memccpy(a_original_func, c, 3, 10);
+	printf("Expected: %s;\n  Result: %s;\n", a_original_func, a);
+	ft_bzero(a_original_func, 10);
+	ft_bzero(a, 10);
+	printf("Expected: %s;\n  Result: %s;\nExpected: %s;\n  Result: %s;\n", (unsigned char *)memccpy(a_original_func, b, 120, 5), (unsigned char *)ft_memccpy(a, b, 120, 5), a_original_func, a);
+ft_bzero(a_original_func, 10);
+	ft_bzero(a, 10);
+	printf("Expected: %s;\n  Result: %s;\nExpected: %s;\n  Result: %s;\n", (unsigned char *)memccpy(a_original_func, b, ' ', 5), (unsigned char *)ft_memccpy(a, b, ' ', 5), a_original_func, a);
 
 	/* ft_memmove.c */
 	printf("========[ft_memmove]=========\n\n");
@@ -311,6 +326,11 @@ int main()
 	printf("========[ft_strncmp]=========\n\n");
 
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 20), ft_strncmp(test1, "1231", 20));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 4), ft_strncmp(test1, "1231", 4));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 3), ft_strncmp(test1, "1231", 3));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 20), ft_strncmp("1231", "1231", 20));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 4), ft_strncmp("1231", "1231", 4));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 3), ft_strncmp("1231", "1231", 3));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 20), ft_strncmp(test1, "Tua", 20));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 0), ft_strncmp(test1, "Tua", 0));
 
@@ -341,6 +361,7 @@ int main()
 	printf("Expected: %i;\n  Result: %i;\n", isalpha('a'), ft_isalpha('a'));
 	printf("Expected: %i;\n  Result: %i;\n", isalpha('8'), ft_isalpha('8'));
 	printf("Expected: %i;\n  Result: %i;\n", isalpha(' '), ft_isalpha(' '));
+	printf("Expected: %i;\n  Result: %i;\n", isalpha(0), ft_isalpha(0));
 
 	/* ft_isascii.c */
 	printf("========[ft_isascii]=========\n\n");
@@ -349,6 +370,7 @@ int main()
 	printf("Expected: %i;\n  Result: %i;\n", isascii('8'), ft_isascii('8'));
 	printf("Expected: %i;\n  Result: %i;\n", isascii(127), ft_isascii(127));
 	printf("Expected: %i;\n  Result: %i;\n", isascii(128), ft_isascii(128));
+	printf("Expected: %i;\n  Result: %i;\n", isascii(0), ft_isascii(0));
 
 	/* ft_isdigit.c */
 	printf("========[ft_isdigit]=========\n\n");

@@ -6,7 +6,7 @@ void *ft_calloc(size_t nmemb, size_t size)
 	size_t	mem_size;
 
 	mem_size = nmemb * size;
-	if (size && nmemb && (mem_size % size || mem_size % nmemb))
+	if (size && nmemb && (mem_size / size != nmemb))
 		return (NULL);
 	res = malloc(mem_size);
 	if (!res)
