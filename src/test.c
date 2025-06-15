@@ -240,8 +240,8 @@ int main()
 	ft_bzero(a, 10);
 
 	ft_memccpy(a, b, 99, 5);
-	printf("Expected: abc ;\n  Result: %s;\n", a);
-	ft_memccpy(a, c, 3,10);
+	printf("Expected: ab;\n  Result: %s;\n", a);
+	ft_memccpy(a, c, 3, 10);
 	printf("Expected: ;\n  Result: %s;\n", a);
 
 	/* ft_memmove.c */
@@ -330,7 +330,9 @@ int main()
 	printf("========[ft_isalnum]=========\n\n");
 
 	printf("Expected: %i;\n  Result: %i;\n", isalnum('a'), ft_isalnum('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isalnum('c'), ft_isalnum('c'));
 	printf("Expected: %i;\n  Result: %i;\n", isalnum('8'), ft_isalnum('8'));
+	printf("Expected: %i;\n  Result: %i;\n", isalnum('2'), ft_isalnum('2'));
 	printf("Expected: %i;\n  Result: %i;\n", isalnum(' '), ft_isalnum(' '));
 
 	/* ft_isalpha.c */

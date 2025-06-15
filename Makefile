@@ -4,6 +4,8 @@ CC = gcc
 
 # Directories
 SRC_DIR = ./src/
+OBJS_DIR = ./objs/
+BIN_DIR	= ./bin/
 
 SRC_FILES = ft_strjoin.c \
 		ft_strlen.c \
@@ -40,7 +42,7 @@ SRC_FILES = ft_strjoin.c \
 		ft_tolower.c \
 		ft_calloc.c
 
-BONUS_FILES = ft_lstnew_bonus.c \
+SRC_BONUS_FILES = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \
 		ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c \
@@ -52,41 +54,53 @@ BONUS_FILES = ft_lstnew_bonus.c \
 		ft_is_incset_bonus.c \
 		ft_putstr_var_fd_bonus.c
 
-TESTFILE = $(addprefix $(SRC_DIR),test.c)
+TESTFILE = test.c
 
 # CC Flags
 CFLAGS = -Wall -Wextra -Werror
 
 # Add directory prefix to source files
-SRC = $(addprefix $(SRC_DIR),$(SRC_FILES))
-SRC_BONUS = $(addprefix $(SRC_DIR),$(BONUS_FILES))
+#SRC = $(addprefix $(SRC_DIR),$(SRC_FILES))
+#SRC_BONUS = $(addprefix $(SRC_DIR),$(BONUS_FILES))
 
 # Include directory flags
 INCLUDES = -I ./includes/
 
 # Object files
-OBJS = $(SRC:.c=.o)
-OBJS_BONUS = $(SRC_BONUS:.c=.o)
-OBJS_TEST = $(TESTFILE:.c=.o)
+OBJS_FILES = $(SRC_FILES:.c=.o)
+OBJS = $(addprefix $(OBJS_DIR), $(OBJS_FILES))
+OBJS_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
+OBJS_BONUS = $(addprefix $(OBJS_DIR), $(OBJS_BONUS_FILES))
+OBJS_TEST_FILE = $(addprefix $(OBJS_DIR), $(TESTFILE:.c=.o))
+
+# Binaries
+BIN_TEST = $(addprefix $(BIN_DIR), test)
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS_DIR} ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
-bonus: ${OBJS} ${OBJS_BONUS}
+bonus: ${OBJS_DIR} ${OBJS} ${OBJS_BONUS}
 	${AR} ${NAME} ${OBJS} ${OBJS_BONUS}
 
-test: ${OBJS} ${OBJS_BONUS} ${OBJS_TEST}
-	${CC} ${CFLAGS} ${OBJS} ${OBJS_BONUS} ${OBJS_TEST} -o test
+test: ${OBJS_DIR} ${BIN_DIR} ${OBJS} ${OBJS_BONUS} ${OBJS_TEST_FILE}
+	${CC} ${CFLAGS} ${OBJS} ${OBJS_BONUS} ${OBJS_TEST_FILE} -o ${BIN_TEST}
 
-%.o: %.c
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
+
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
+
+$(OBJS_DIR)%.o: $(SRC_DIR)%.c
 	${CC} ${CFLAGS} -c ${INCLUDES} $< -o $@
 
 clean:
-	rm -f ${OBJS} ${OBJS_TEST} ${OBJS_BONUS}
+	rm -f $(addprefix ${SRC_DIR},${OBJS_FILES}) ${OBJS} ${OBJS_TEST} ${OBJS_BONUS}
 
 fclean: clean
+	rm -rf ${BIN_DIR} ${OBJS_DIR}
 	rm -f ${NAME} test
 
 re: fclean all
