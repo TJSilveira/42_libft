@@ -6,7 +6,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*dest;
 
 	if (start >= ft_strlen(s))
-		return (NULL);
+	{
+		dest = malloc((1)*sizeof(char));
+		if (!dest)
+			return NULL;
+		dest[0] = '\0';
+		return (dest);
+	}
 	i = 0;
 	dest = malloc((len+1)*sizeof(char));
 	if (!dest)

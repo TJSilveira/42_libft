@@ -152,6 +152,16 @@ int main()
 		result++;
 	}
 
+	a = "1-2-3-4-5-6-7-8--8-8--8-4------4--4";
+	result = ft_split(a,'-');
+	printf("Expected:\n1\n2\n3\n4\n5\n6\n7\n8\n8\n8\n8\n4\n4\n4\n");
+	printf("  Result:\n");
+	while (*result)
+	{
+		printf("%s\n", *result);
+		result++;
+	}
+
 	a = "aaABCDaEFGHaa1234";
 	result = ft_split(a,0);
 	printf("Expected:\naaABCDaEFGHaa1234\n");
@@ -281,9 +291,12 @@ int main()
 
 	/* ft_memchr.c */
 	printf("========[ft_memchr]=========\n\n");
+	char	*src = "/|\x12\xff\x09\x42\2002\42|\\";
+	int		size = 10;
 
 	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(d, '4', 10), (char *)ft_memchr(d, '4', 10));
 	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(d, 'A', 10), (char *)ft_memchr(d, 'A', 10));
+	printf("Expected: %s;\n  Result: %s;\n", (char *)memchr(src, '\200', size), (char *)ft_memchr(src, '\200', size));
 
 	/* ft_memcmp.c */
 	printf("========[ft_memcmp]=========\n\n");
@@ -291,6 +304,7 @@ int main()
 	printf("Expected: %i;\n  Result: %i;\n", memcmp(a, "a0123456789789", 14), ft_memcmp(a, "a0123456789789", 14));
 	printf("Expected: %i;\n  Result: %i;\n", memcmp(a, "a0123456789789", 0), ft_memcmp(a, "a0123456789789", 0));
 	printf("Expected: %i;\n  Result: %i;\n", memcmp(a, " 0123456789789", 14), ft_memcmp(a, " 0123456789789", 14));
+	printf("Expected: %i;\n  Result: %i;\n", memcmp("\xff\xaa\xde\x12", "\xff\xaa\xde\x12MACOSAAAAA", 4), ft_memcmp("\xff\xaa\xde\x12", "\xff\xaa\xde\x12MACOSAAAAA", 4));
 
 	/* ft_strlcpy.c */
 	printf("========[ft_strlcpy]=========\n\n");
@@ -299,6 +313,7 @@ int main()
 	printf("Expected: '0';\n  Result: '%li'%s;\n", ft_strlcpy(a, "", 14), a);
 
 	char test1[20] = "Tua123";
+	// char *null_ptr = NULL;
 	/*char test1a[20] = "123";
 	char test2[20] = "Tua123";
 	char test2a[20] = "123";*/
@@ -312,13 +327,18 @@ int main()
 	/* ft_strchr.c */
 	printf("========[ft_strchr]=========\n\n");
 
+	// printf("Expected: %s;\n", strchr(null_ptr, '1'));
+	// printf("  Result: %s;\n", ft_strchr(null_ptr, '1'));
 	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, '1'), ft_strchr(test1, '1'));
 	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, '8'), ft_strchr(test1, '8'));
 	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, 0), ft_strchr(test1, 0));
+	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, 'T' + 256), ft_strchr(test1, 'T' + 256));
+	printf("Expected: %s;\n  Result: %s;\n", strchr(test1, -43), ft_strchr(test1, -43));
 
 	/* ft_strrchr.c */
 	printf("========[ft_strrchr]=========\n\n");
 
+	// printf("Expected: %s;\n  Result: %s;\n", strrchr(null_ptr, '1'), ft_strrchr(null_ptr, '1'));
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '1'), ft_strrchr(test1, '1'));
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '8'), ft_strrchr(test1, '8'));
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, 0), ft_strrchr(test1, 0));
@@ -326,20 +346,26 @@ int main()
 	/* ft_strnstr.c */
 	printf("========[ft_strnstr]=========\n\n");
 
-	printf("Expected: 123123;\n  Result: %s;\n", ft_strnstr(test1, "1231", 20));
-	printf("Expected: (null);\n  Result: %s;\n", ft_strnstr(test1, "1231s", 20));
+	char test9[20] = "Tua123123";
+	// printf("Expected: 123123;\n  Result: %s;\n", ft_strnstr(null_ptr, "1231", 20));
+	printf("Expected: 123123;\n  Result: %s;\n", ft_strnstr(test9, "1231", 20));
+	printf("Expected: (null);\n  Result: %s;\n", ft_strnstr(test9, "1231s", 20));
 
 	/* ft_strncmp.c */
 	printf("========[ft_strncmp]=========\n\n");
 
-	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 20), ft_strncmp(test1, "1231", 20));
+	// printf("Expected: %i;\n  Result: %i;\n", strncmp(null_ptr, "1231", 20), ft_strncmp(null_ptr, "1231", 20));
+	printf("%s\n", test1);
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 2), ft_strncmp(test1, "1231", 2));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 4), ft_strncmp(test1, "1231", 4));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "1231", 3), ft_strncmp(test1, "1231", 3));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 20), ft_strncmp("1231", "1231", 20));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 4), ft_strncmp("1231", "1231", 4));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 3), ft_strncmp("1231", "1231", 3));
-	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 20), ft_strncmp(test1, "Tua", 20));
+	// printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Zua", 20), ft_strncmp(test1, "Zua", 20));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Zua", 3), ft_strncmp(test1, "Zua", 3));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 0), ft_strncmp(test1, "Tua", 0));
+	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua123123", 9), ft_strncmp(test1, "Tua123123", 9));
 
 	/* ft_striteri.c */
 	printf("========[ft_striteri.c]=========\n\n");
@@ -373,6 +399,8 @@ int main()
 	printf("========[ft_isalpha]=========\n\n");
 
 	printf("Expected: %i;\n  Result: %i;\n", isalpha('a'), ft_isalpha('a'));
+	printf("Expected: %i;\n  Result: %i;\n", isalpha('Z'), ft_isalpha('Z'));
+	printf("Expected: %i;\n  Result: %i;\n", isalpha('H'), ft_isalpha('H'));
 	printf("Expected: %i;\n  Result: %i;\n", isalpha('8'), ft_isalpha('8'));
 	printf("Expected: %i;\n  Result: %i;\n", isalpha(' '), ft_isalpha(' '));
 	printf("Expected: %i;\n  Result: %i;\n", isalpha(0), ft_isalpha(0));
