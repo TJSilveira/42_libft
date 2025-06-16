@@ -1,4 +1,5 @@
 #include "libft.h"
+#include "ft_split.h"
 
 static int	is_cset(char s, char c)
 {
@@ -26,30 +27,38 @@ static int	counter_word(char const *s, char c)
 	return (counter);
 }
 
+static void	split_loop(char const *s, char c, t_split *sp)
+{
+	while (sp->index < sp->n_words)
+	{
+		while (is_cset(s[sp->i], c) == 1)
+			sp->i++;
+		sp->start = sp->i;
+		while (is_cset(s[sp->i], c) == 0)
+			sp->i++;
+		sp->dest[sp->index] = ft_substr(s, sp->start, sp->i - sp->start);
+		if (!sp->dest[sp->index])
+		{
+			while (--sp->index >= 0)
+				free(sp->dest[sp->index]);
+		}
+		sp->index++;
+	}
+	sp->dest[sp->index] = NULL;
+}
+
 char **ft_split(char const *s, char c)
 {
-	size_t	i;
-	int		n_words;
-	int		index;
-	int		start;
-	char	**dest;
+	t_split	sp;
 
-	i = 0;
-	index = 0;
-	n_words = counter_word(s, c);
-	dest = malloc(sizeof(char *) * (n_words + 1));
-	if (!dest)
+	if (!s)
 		return (NULL);
-	while (index < n_words)
-	{
-		while (is_cset(s[i], c) == 1)
-			i++;
-		start = i;
-		while (is_cset(s[i], c) == 0)
-			i++;
-		dest[index] = ft_substr(s, start, i - start);
-		index++;
-	}
-	dest[index] = NULL;
-	return (dest);
+	sp.i = 0;
+	sp.index = 0;
+	sp.n_words = counter_word(s, c);
+	sp.dest = malloc(sizeof(char *) * (sp.n_words + 1));
+	if (!sp.dest)
+		return (NULL);
+	split_loop(s, c, &sp);	
+	return (sp.dest);
 }
