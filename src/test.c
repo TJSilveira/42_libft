@@ -28,6 +28,12 @@ char	encoder(unsigned int i, char c)
 	return ((c + i - ' ') % 95 + ' ');
 }
 
+void	change_1_to_9(unsigned int i, char *c)
+{
+	if (i != 0 && *c == '1')
+		*c = '9';
+}
+
 int main()
 {
 	/* ft_substr */
@@ -255,7 +261,7 @@ int main()
 	ft_bzero(a_original_func, 10);
 	ft_bzero(a, 10);
 	printf("Expected: %s;\n  Result: %s;\nExpected: %s;\n  Result: %s;\n", (unsigned char *)memccpy(a_original_func, b, 120, 5), (unsigned char *)ft_memccpy(a, b, 120, 5), a_original_func, a);
-ft_bzero(a_original_func, 10);
+	ft_bzero(a_original_func, 10);
 	ft_bzero(a, 10);
 	printf("Expected: %s;\n  Result: %s;\nExpected: %s;\n  Result: %s;\n", (unsigned char *)memccpy(a_original_func, b, ' ', 5), (unsigned char *)ft_memccpy(a, b, ' ', 5), a_original_func, a);
 
@@ -334,6 +340,13 @@ ft_bzero(a_original_func, 10);
 	printf("Expected: %i;\n  Result: %i;\n", strncmp("1231", "1231", 3), ft_strncmp("1231", "1231", 3));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 20), ft_strncmp(test1, "Tua", 20));
 	printf("Expected: %i;\n  Result: %i;\n", strncmp(test1, "Tua", 0), ft_strncmp(test1, "Tua", 0));
+
+	/* ft_striteri.c */
+	printf("========[ft_striteri.c]=========\n\n");
+
+	char *test_striteri = ft_strdup(test1);
+	ft_striteri(test_striteri, change_1_to_9);
+	printf("Expected: Tua923;\n  Result: %s;\n", test_striteri);
 
 	/* ft_atoi.c */
 	printf("========[ft_atoi]=========\n\n");
