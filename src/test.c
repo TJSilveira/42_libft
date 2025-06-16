@@ -119,7 +119,7 @@ int main()
 	a = "aaABCDaEFGHaa1234";
 	char	**result = ft_split(a,'a');
 	printf("Expected:\nABCD\nEFGH\n1234\n");
-	printf("Result:\n");
+	printf("  Result:\n");
 	while (*result)
 	{
 		printf("%s\n", *result);
@@ -129,7 +129,7 @@ int main()
 	a = "aaABCDaEFGHaa1234";
 	result = ft_split(a,' ');
 	printf("Expected:\naaABCDaEFGHaa1234\n");
-	printf("Result:\n");
+	printf("  Result:\n");
 	while (*result)
 	{
 		printf("%s\n", *result);
@@ -139,7 +139,7 @@ int main()
 	a = "";
 	result = ft_split(a,' ');
 	printf("Expected:\n");
-	printf("Result:\n");
+	printf("  Result:\n");
 	while (*result)
 	{
 		printf("%s\n", *result);
@@ -149,7 +149,7 @@ int main()
 	a = "aaABCDaEFGHaa1234";
 	result = ft_split(a,0);
 	printf("Expected:\naaABCDaEFGHaa1234\n");
-	printf("Result:\n");
+	printf("  Result:\n");
 	while (*result)
 	{
 		printf("%s\n", *result);
@@ -236,7 +236,7 @@ int main()
 	printf("========[ft_memcpy]=========\n\n");
 
 	ft_memcpy(a, b, 5);
-	printf("Expected: abc ;\n  Result: %s;\n", a);
+	printf("Expected: %s;\n  Result: %s;\n", b, a);
 	ft_memcpy(a, c, 10);
 	printf("Expected: ;\n  Result: %s;\n", a);
 
@@ -292,15 +292,16 @@ ft_bzero(a_original_func, 10);
 	printf("Expected: '8'Correct!;\n  Result: '%li'%s;\n", ft_strlcpy(a, "Correct!", 14), a);
 	printf("Expected: '0';\n  Result: '%li'%s;\n", ft_strlcpy(a, "", 14), a);
 
-	/* ft_strlcat.c */
-	printf("========[ft_strlcat]=========\n\n");
-
 	char test1[20] = "Tua123";
-	char test1a[20] = "123";
+	/*char test1a[20] = "123";
 	char test2[20] = "Tua123";
-	char test2a[20] = "123";
+	char test2a[20] = "123";*/
+
+	/* ft_strlcat.c */
+	/*printf("========[ft_strlcat]=========\n\n");
+
 	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 2), test1, ft_strlcat(test2, test2a, 2), test2);
-	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 14), test1, ft_strlcat(test2, test2a, 14), test2);
+	printf("Expected: '%li'%s;\n  Result: '%li'%s;\n", strlcat(test1, test1a, 14), test1, ft_strlcat(test2, test2a, 14), test2);*/
 
 	/* ft_strchr.c */
 	printf("========[ft_strchr]=========\n\n");

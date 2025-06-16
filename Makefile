@@ -85,7 +85,7 @@ bonus: ${OBJS_DIR} ${OBJS} ${OBJS_BONUS}
 	${AR} ${NAME} ${OBJS} ${OBJS_BONUS}
 
 test: ${OBJS_DIR} ${BIN_DIR} ${OBJS} ${OBJS_BONUS} ${OBJS_TEST_FILE}
-	${CC} ${CFLAGS} ${OBJS} ${OBJS_BONUS} ${OBJS_TEST_FILE} -o ${BIN_TEST}
+	${CC} ${CFLAGS} ${OBJS} ${OBJS_BONUS} ${OBJS_TEST_FILE} -o ${BIN_TEST} -lbsd
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
