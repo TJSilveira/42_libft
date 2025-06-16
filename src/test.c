@@ -54,7 +54,10 @@ int main()
 	printf("Expected: \n  Result: %s\n",res);
 
 	res = ft_substr(a,100,5);
-	printf("Expected: (null)\n  Result: %s\n",res);
+	printf("Expected: \n  Result: %s\n",res);
+
+	res = ft_substr(a,8,9);
+	printf("Expected: 9\n  Result: %s\n",res);
 
 	/* ft_strjoin */
 

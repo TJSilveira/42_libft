@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+static int	ft_abs(int n)
+{
+	if (n < 0)
+		n = -n;
+	return (n);
+}
+
 char	*ft_itoa(int n)
 {
 	char	temp[12];
@@ -27,7 +34,7 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	if (n < 0)
 		final[j++] = '-';
-	n = ABS(n);
+	n = ft_abs(n);
 	while (n > 0)
 	{
 		temp[i++] = n % 10 + '0';
