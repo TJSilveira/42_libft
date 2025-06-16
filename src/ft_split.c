@@ -43,10 +43,10 @@ static void	split_loop(char const *s, char c, t_split *sp)
 {
 	while (sp->index < sp->n_words)
 	{
-		while (is_cset(s[sp->i], c) == 1)
+		while (s[sp->i] && is_cset(s[sp->i], c) == 1)
 			sp->i++;
 		sp->start = sp->i;
-		while (is_cset(s[sp->i], c) == 0)
+		while (s[sp->i] && is_cset(s[sp->i], c) == 0)
 			sp->i++;
 		sp->dest[sp->index] = ft_substr(s, sp->start, sp->i - sp->start);
 		if (!sp->dest[sp->index])

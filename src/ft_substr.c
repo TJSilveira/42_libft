@@ -35,7 +35,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (dest);
 	}
 	i = 0;
-	len_dest = ft_min(len, ft_strlen(s));
+	len_dest = ft_min(len, ft_strlen(s) - start);
 	dest = malloc((len_dest + 1) * sizeof(char));
 	if (!dest)
 		return (NULL);
