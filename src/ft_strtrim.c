@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsilveir <tsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/16 14:45:19 by tsilveir          #+#    #+#             */
+/*   Updated: 2025/06/16 14:45:20 by tsilveir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -12,6 +24,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1) - 1;
 	while (end >= start && is_incset(s1[end], set))
 		end--;
-	dest = ft_substr(s1,  start, end - start + 1);
+	dest = ft_substr(s1, start, end - start + 1);
 	return (dest);
 }

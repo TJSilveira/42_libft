@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsilveir <tsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/16 14:43:49 by tsilveir          #+#    #+#             */
+/*   Updated: 2025/06/16 14:43:50 by tsilveir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "ft_split.h"
 
@@ -18,7 +30,7 @@ static int	counter_word(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (is_cset(s[i],c) == 0 && (i == 0 || is_cset(s[i - 1], c)))
+		if (is_cset(s[i], c) == 0 && (i == 0 || is_cset(s[i - 1], c)))
 		{
 			counter++;
 		}
@@ -47,7 +59,7 @@ static void	split_loop(char const *s, char c, t_split *sp)
 	sp->dest[sp->index] = NULL;
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	t_split	sp;
 
@@ -59,6 +71,6 @@ char **ft_split(char const *s, char c)
 	sp.dest = malloc(sizeof(char *) * (sp.n_words + 1));
 	if (!sp.dest)
 		return (NULL);
-	split_loop(s, c, &sp);	
+	split_loop(s, c, &sp);
 	return (sp.dest);
 }
