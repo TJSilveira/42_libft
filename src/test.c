@@ -342,7 +342,7 @@ int main()
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '1'), ft_strrchr(test1, '1'));
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, '8'), ft_strrchr(test1, '8'));
 	printf("Expected: %s;\n  Result: %s;\n", strrchr(test1, 0), ft_strrchr(test1, 0));
-
+ 
 	/* ft_strnstr.c */
 	printf("========[ft_strnstr]=========\n\n");
 
